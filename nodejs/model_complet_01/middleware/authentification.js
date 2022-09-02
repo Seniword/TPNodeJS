@@ -7,8 +7,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const authMiddleware = (req, res, next) => {
-    /// auth verifications ...
-    // if user exists
+    // check if user name and password are safe
     let regex = /[A-Za-z0-9!?;,.§&#|~{}]/g;
     if(req.body.name[1].match(regex) != null){}
     else {res.redirect("/")};
@@ -19,6 +18,8 @@ const authMiddleware = (req, res, next) => {
         const hmacDigest = Base64.stringify(hmacSHA512(hashDigest, privateKey));
     }
     else {res.redirect("/")};
+
+    req.session.name = req.body.name[1];
 
     next();
 };

@@ -5,9 +5,6 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 import loginForm from "./routes/routes.js"
-import loginSuccess from "./routes/routes.js";
-import authMiddleware from "./middleware/authentification.js";
-
 
 // ==========
 // App initialization
