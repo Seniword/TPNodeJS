@@ -45,8 +45,12 @@ async function init(){}
 // ==========
 // App routers
 // ==========
-
-app.use("/", route);
+try{
+  app.use("/", route);
+}catch(err)
+{
+  console.error(err.message)
+}
 
 // ==========
 // App start
